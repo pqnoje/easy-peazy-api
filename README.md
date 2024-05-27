@@ -106,12 +106,12 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
-  ```json
+```json
 {
     "name": "Jefferson Fernandes de Lucena",
     "phone": "11950761002",
     "birthdate": "1990-06-22",
-    "documents":  [
+    "documents":  
         {
             "type": "RG",
             "description": "92347201X"
@@ -131,7 +131,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 - **Method:** `PUT`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
-  ```json
+```json
 {
     "name": "Jefferson Fernandes de Lucena",
     "phone": "11950762020",
