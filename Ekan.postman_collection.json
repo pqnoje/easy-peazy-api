@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "f1fb61c9-9533-4d56-b62c-7d4598111deb",
+		"name": "Ekan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14621138",
+		"_collection_link": "https://os-nerds.postman.co/workspace/Os-Nerds~2fa19426-8987-478f-8005-1489a4568324/collection/14621138-f1fb61c9-9533-4d56-b62c-7d4598111deb?action=share&source=collection_link&creator=14621138"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"password\": \"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"admin2\",\r\n  \"password\": \"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Details",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3MTY1NzE3MTUsImV4cCI6MTcxNjU3NTMxNX0.2b3kSAw5V7fC_5JUXqGwXvWninIeybWKlv-YFVjq-eOcH_Qt54JfVIYMn16qnD8XPq3F6ozbzXZSTd3AfZGF6Q"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dynamic Logging Level Adjustment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/actuator/loggers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"actuator",
+						"loggers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Beneficiary",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3MTY2NzM2NDYsImV4cCI6MTcxNjY3NzI0Nn0.RNYomlEKkA5bIgsCLpT_Gyo8hFsHG5CaSOgUohIt_Lh-QMUEWrnRYtGmHH7n8hFbIEyrKHpgPkNuGikcvN7nlQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jefferson Fernandes de Lucena\",\r\n    \"phone\": \"11950761002\",\r\n    \"birthdate\": \"1990-06-22\",\r\n    \"documents\":  [\r\n        {\r\n            \"type\": \"RG\",\r\n            \"description\": \"92347201X\"\r\n        },\r\n        {\r\n            \"type\": \"CPF\",\r\n            \"description\": \"93892801923\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/beneficiary",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"beneficiary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Beneficiary",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3MTY2NjU0NDksImV4cCI6MTcxNjY2OTA0OX0.66JkNPQ-tSlBfSYmb6q7NhmwGyR6bUfZzaDsXd95rXHNO4arybaGoSHsRtFA0SuM4avWvxrRnq1R0k7W584whQ"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/beneficiary/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"beneficiary",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Beneficiary",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3MTY2NzAwNDEsImV4cCI6MTcxNjY3MzY0MX0.96p9jkpixnUKJ7cptmMLcoU3Hhpn-I1aVzZuS419qZZv_d4E3AjIe9R1GpGwby1k-RtZ8SymNCBUhgQYqtGcPw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Jefferson Fernandes de Lucena\",\r\n    \"phone\": \"11950761007\",\r\n    \"birthdate\": \"1990-06-22\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/beneficiary/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"beneficiary",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Beneficiaries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3MTY2NjY3NzQsImV4cCI6MTcxNjY3MDM3NH0.mcQSvvP2xZ1sJQegn909kfIYRhu16OIYvLAETM1wkl6zXmGLR9uVu4CP1PeRP2DumgC2xEuK9frbSNjauOQ9dg"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/beneficiary",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"beneficiary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Documents By Beneficiary",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjIiLCJpYXQiOjE3MTY2Njg0MDcsImV4cCI6MTcxNjY3MjAwN30.js8yoBR4v9QfkIQ_UbkwEzaUWzNw0NAz3rgWzbZavgFSCbvRUe356CtmXAAQh3qxRlL_Ihtt6vP-LFuozulxAg"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/beneficiary/1/document",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"beneficiary",
+						"1",
+						"document"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
