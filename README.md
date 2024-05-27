@@ -111,7 +111,7 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
     "name": "Jefferson Fernandes de Lucena",
     "phone": "11950761002",
     "birthdate": "1990-06-22",
-    "documents":  
+    "documents": [
         {
             "type": "RG",
             "description": "92347201X"
