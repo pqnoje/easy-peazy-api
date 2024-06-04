@@ -18,6 +18,7 @@ Esta é uma simples aplicação Spring Boot que demonstra o consumo de API para 
 
 - Checkout da cesta de compras.
 - Gerenciamento de entrega.
+- Adicionar produtos à cesta de compras.
 
 ## Tecnologias Usadas
 
