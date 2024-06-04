@@ -1,6 +1,6 @@
-# Cadastro de Beneficiários de Plano de Saúde
+# Exemplo de E-commerce Completo
 
-Esta é uma simples aplicação Spring Boot que demonstra o consumo de API para cadastro de beneficiário e seus documentos através de endereços REST com autenticação de usuário.
+Esta é uma simples aplicação Spring Boot que demonstra o consumo de API para cadastro de produtos para venda eletrônica através de endereços REST com autenticação de usuário.
 
 ## Funcionalidades
 
@@ -9,12 +9,15 @@ Esta é uma simples aplicação Spring Boot que demonstra o consumo de API para 
 - Atenticação baseada em JWT: Segura que os endereços de API sejam impedidas por JWT tokens.
 - Retorno de detalhes do usuário: Permite que seja acessado os detalhes do usuário com JWT Token.
 - Ajuste de autenticação dinâmica: Habilita a mudança de autoridade de nível em tempo de execução com Spring Boot Actuator.
-- Cadastro de novos beneficiários junto com os objetos de documento
-- Atualização inteira do beneficiário através do verbo PUT
-- Deletar um beneficiário
-- Listar todos os beneficiários cadastrados
-- Listar todos os documentos cadastrados para um beneficiário
-- Swagger com anotações importantes sobre cada endereço da API REST
+- Cadastro de novos produtos para apresentar para venda.
+- Cadastro de prateleiras que definem a disponibilização dos produtos que estão à venda. A prateleira pode ter produtos de que estão contidas em outras prateleiras também, isso possiblita que sejam criadas categorias para separar produtos em acessos diferentes.
+- Cadastro de cestas de compras para permitir recuperar a cesta de compras para fazer transações de pagamento e entrega. Cada usuário tem uma cesta de compras que contém ao menos um produto.
+- Listagem de produtos por id de prateleira. A lista de produtos por prateleira serve para separar por categoria o que deve ser apresentado. Os produtos de exemplo de mesma categoria pode pertencer a uma categoria diversa ou categoria especifica do produto que está a venda.
+
+## Funcionalidades Futuras
+
+- Checkout da cesta de compras.
+- Gerenciamento de entrega.
 
 ## Tecnologias Usadas
 
@@ -44,7 +47,7 @@ git clone https://github.com/pqnoje/ekan-teste.git
 Navegue até o diretório do projeto:
 
 ```
-cd ekan-teste
+cd easy-peazy
 ```
 
 Construa o projeto com Maven:
@@ -100,69 +103,94 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Resposta:** Um objeto JSON com os detalhes do usuário
 
-### Cadastra um novo beneficiário
+### Cadastra um nova prateleira
 
-- **URL:** `/api/beneficiary`
+- **URL:** `/api/shelf`
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
 ```json
 {
-    "name": "Jefferson Fernandes de Lucena",
-    "phone": "11950761002",
-    "birthdate": "1990-06-22",
-    "documents": [
+    "type": "Masculino",
+    "description": "Vestuário Masculino"
+}
+```
+- **Resposta:** Um objeto JSON com os detalhes da prateleira
+
+### Cadastra um novo produto
+
+- **URL:** `/api/product`
+- **Method:** `POST`
+- **Headers:** `Authorization: Bearer <JWT Token>`
+- **Request Body:**
+```json
+{
+    "type": "Camiseta",
+    "description": "Camiseta nova de manga curta.",
+    "price": 29.99,
+    "shelfs": [
         {
-            "type": "RG",
-            "description": "92347201X"
-        },
-        {
-            "type": "CPF",
-            "description": "93892801923"
+            "id": 1
         }
     ]
 }
 ```
-- **Resposta:** Um objeto JSON com os detalhes do beneficiário
+- **Resposta:** Um objeto JSON com os detalhes do produto
 
-### Atualiza um beneficiário
+### Atualiza um produto
 
-- **URL:** `/api/beneficiary/id`
+- **URL:** `/api/product`
 - **Method:** `PUT`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 - **Request Body:**
 ```json
 {
-    "name": "Jefferson Fernandes de Lucena",
-    "phone": "11950762020",
-    "birthdate": "1990-06-22"
+    "type": "Camiseta",
+    "description": "Camiseta nova.",
+    "price": 34.99,
+    "shelfs": [{
+        "id": 1
+    },{
+        "id": 2
+    }]
 }
 ```
-- **Resposta:** Um objeto JSON com os detalhes do beneficiário
+- **Resposta:** Um objeto JSON com os detalhes do produto
 
-### Deleta um beneficiário
+### Deleta um produto
 
-- **URL:** `/api/beneficiary/id`
+- **URL:** `/api/product/id`
 - **Method:** `DELETE`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
-- **Resposta:** Uma mensagem dizendo que o beneficiário foi deletado
+- **Resposta:** Uma mensagem dizendo que o produto foi deletado
 
-### Lista de todos os beneficiários
+### Detalhes da prateleira
 
-- **URL:** `/api/beneficiary`
+- **URL:** `/api/shelf/id`
 - **Method:** `GET`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
-- **Resposta:** Uma lista de todos os beneficiários cadastrados
+- **Resposta:** Um objeto JSON com os detalhes da prateleira
 
-### Lista de todos os documentos de um beneficiário
+http://localhost:8080/api/shelf/1
 
-- **URL:** `/api/beneficiary/id/document`
+### Detalhes do produto
+
+- **URL:** `/api/product/id`
 - **Method:** `GET`
 - **Headers:** `Authorization: Bearer <JWT Token>`
 
-- **Resposta:** Uma lista de todos os documentos cadastrados para o beneficiário informado
+- **Resposta:** Um objeto JSON com os detalhes do produto
+
+### Lista de todos os produtos de uma prateleira
+
+- **URL:** `/api/product/shelf/id`
+- **Method:** `GET`
+- **Headers:** `Authorization: Bearer <JWT Token>`
+
+- **Resposta:** Uma lista de todos os produtos cadastrados para a prateleira informada
+
 
 ## Swagger
 
