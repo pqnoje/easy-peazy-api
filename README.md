@@ -48,7 +48,7 @@ git clone https://github.com/pqnoje/easy-peazy-api.git
 Navegue até o diretório do projeto:
 
 ```
-cd easy-peazy
+cd easy-peazy-api
 ```
 
 Construa o projeto com Maven:
