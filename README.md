@@ -76,10 +76,14 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 - **Method:** `POST`
 - **Request Body:**
   ```json
-  {
-    "username": "exemplo_usuario",
-    "password": "exemplo_senha"
-  }
+{
+    "username": "user",
+    "password": "access123",
+    "basket": {
+        "description": "Cesta de compras do Jefferson",
+        "products": []
+    }
+}
   ```
 - **Resposta:** `"Registration successful"`
 
@@ -90,8 +94,8 @@ Assim que a aplicação rodar você pode acessar os endereços da API através d
 - **Request Body:**
 ```json
 {
-    "username": "exemplo_usuario",
-    "password": "exemplo_senha"
+    "username": "user",
+    "password": "access123"
 }
 ```
 - **Resposta:** JWT token
