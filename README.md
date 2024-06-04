@@ -42,7 +42,7 @@ Esta é uma simples aplicação Spring Boot que demonstra o consumo de API para 
 Clone este repositório em seu computador:
 
 ```
-git clone https://github.com/pqnoje/ekan-teste.git
+git clone https://github.com/pqnoje/easy-peazy-api.git
 ```
 
 Navegue até o diretório do projeto:
